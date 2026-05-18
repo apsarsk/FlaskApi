@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actor By ID</title>
+</head>
+<body>
+
+    <h1>Actor Details</h1>
+
+    {% if row %}
+
+        <p><strong>Actor ID:</strong> {{ row[0] }}</p>
+
+        <p><strong>First Name:</strong> {{ row[1] }}</p>
+
+        <p><strong>Last Name:</strong> {{ row[2] }}</p>
+
+    {% else %}
+
+        <h2>No Actor Found</h2>
+
+    {% endif %}
+
+</body>
+</html>

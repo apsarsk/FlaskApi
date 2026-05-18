@@ -4,6 +4,8 @@ from dbconfig import DB_CONFIG
 from flask import Flask,render_template, request
 import math
 
+from actorById import getActorById
+
 app=Flask(__name__)
 @app.route('/getApi')
 def getApi():
@@ -30,6 +32,15 @@ def getApi():
     cursor.close()
     conn.close()
     return render_template('getApi.html', rows=rows, page=page, total_pages=total_pages)
+@app.route('/')
+def home():
+    return render_template('searchActor.html')
+
+app.add_url_rule(
+    '/getActorById',
+    view_func=getActorById
+)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
