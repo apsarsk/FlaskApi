@@ -5,6 +5,7 @@ from flask import Flask,render_template, request
 import math
 
 from actorById import getActorById
+from postApi import postApi
 
 app=Flask(__name__)
 @app.route('/getApi')
@@ -36,9 +37,18 @@ def getApi():
 def home():
     return render_template('searchActor.html')
 
+@app.route('/saveActor')
+def saveActor():
+    return render_template('postApi.html')
+
 app.add_url_rule(
     '/getActorById',
     view_func=getActorById
+)
+
+app.add_url_rule(
+    '/postApi',
+    view_func=postApi,methods=['GET','POST']
 )
 
 
