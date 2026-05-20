@@ -6,6 +6,9 @@ import math
 
 from actorById import getActorById
 from postApi import postApi
+from deleteActor import deleteActor, deleteActorPage
+
+
 
 app=Flask(__name__)
 @app.route('/getApi')
@@ -49,6 +52,16 @@ app.add_url_rule(
 app.add_url_rule(
     '/postApi',
     view_func=postApi,methods=['GET','POST']
+)
+
+app.add_url_rule(
+    '/deleteActor/<int:actor_id>',
+    view_func=deleteActor,methods=['DELETE']
+)
+
+app.add_url_rule(
+    '/deleteActor',
+    view_func=deleteActorPage,methods=['GET']
 )
 
 
