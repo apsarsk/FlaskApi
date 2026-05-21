@@ -7,6 +7,7 @@ import math
 from actorById import getActorById
 from postApi import postApi
 from deleteActor import deleteActor, deleteActorPage
+from updateActor import updateActor,updateActorPage 
 
 
 
@@ -62,6 +63,16 @@ app.add_url_rule(
 app.add_url_rule(
     '/deleteActor',
     view_func=deleteActorPage,methods=['GET']
+)
+
+app.add_url_rule(
+    '/updateActor',
+    view_func=updateActorPage,methods=['GET']
+)
+
+app.add_url_rule(
+    '/updateActor/<int:actor_id>',
+    view_func=updateActor,methods=['PUT']
 )
 
 
